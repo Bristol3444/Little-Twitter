@@ -3,6 +3,7 @@ const socialpost = {
     templateUrl: `app/socialpost/socialpost.html`,
     controller: [function(){
         const vm = this;
+        vm.formToggle = false;
         vm.feed = [
             {
                 title: "thought 1",
@@ -17,10 +18,22 @@ const socialpost = {
                 body: "The music exercise we did earlier was fun"
             }
         ];
-        vm.addFeed = function() {
+        vm.onSubmit = function(newPost) {
+            console.log(newPost);
+            vm.feed.push({...newPost});
+            console.log(vm.feed);
 
         };
+        vm.deleteFeed = function(index) {
+            vm.feed.splice(index, 1);
+            console.log(vm.feed);
 
+        }
+        vm.showForm = function() {
+            vm.formToggle = !vm.formToggle;
+            console.log(vm.formToggle);
+        }
+        
     }]
 }
 angular

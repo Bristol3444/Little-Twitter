@@ -1,10 +1,9 @@
-<p>Here is my parent Social Post</p>
+<button class="add-thought" ng-click="$ctrl.showForm();">Add New Thought</button>
 <section>
-    <div ng-repeat="ideas in $ctrl.feed">
-        <p>{{ideas.title}}</p>
-        <p>{{ideas.body}}</p>
-        <button>X</button>
+    <div class="tweets" ng-repeat="ideas in $ctrl.feed track by $index">
+        <p class="tweet-title">{{ideas.title}}</p>
+        <p class="tweet-body">{{ideas.body}}</p>
+        <button class="cancel" ng-click="$ctrl.deleteFeed($index);">X</button>
     </div>
-
-
+    <postform on-submit="$ctrl.onSubmit(newPost)"></postform>
 </section>

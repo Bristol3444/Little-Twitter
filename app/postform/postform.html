@@ -1,0 +1,13 @@
+
+  <form class="form"
+      ng-class="{'form-show': $ctrl.formDisplay === true, 'form-hide': $ctrl.formDisplay === false}"
+      ng-submit="$ctrl.onSubmit({newPost})">
+      <p>Title</p>
+      <input
+        ng-model="newPost.title">
+      <p>Text</p>
+      <input 
+      ng-model="newPost.body"
+      expand></input>
+      <button>Add</button>
+  </form>

@@ -1,9 +1,9 @@
 "use strict";
 const post = {
     bindings: {
-
+        show: "&"
     },
-    templateUrl: `app/post/post/html`
+    templateUrl: `app/post/post.html`
 }
 
 angular
