@@ -4,8 +4,8 @@ function expand() {
         restrict: "A",
         link: function($scope, $element, $attrs) {
             $element.on("focus", function(){
-                $element.css("width", "200px");
-                $element.css("height", "50px");
+                $element.css("width", "300px");
+                $element.css("height", "75px");
             });
             $element.on("blur", function(){
                 $element.css("width", "");

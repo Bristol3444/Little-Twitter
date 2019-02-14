@@ -53,7 +53,7 @@ section {
     font-family: 'Dosis', sans-serif;
 }
 .cancel {
-    width: 10%;
+    width: 5%;
     background-color: rgb(3, 169, 244);
     border: 1px solid rgb(3, 169, 244);
     font-size: 1em;
@@ -72,4 +72,10 @@ section {
     font-size: 1em;
     margin-bottom: 1px;
     opacity: .7;
+}
+.form-hide {
+    display: none;
+}
+.form-show {
+    display: block;
 }
