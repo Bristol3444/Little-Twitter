@@ -1,9 +1,24 @@
-<button class="add-thought" ng-click="$ctrl.showForm();">Add New Thought</button>
-<section>
-    <div class="tweets" ng-repeat="ideas in $ctrl.feed track by $index">
-        <p class="tweet-title">{{ideas.title}}</p>
-        <p class="tweet-body">{{ideas.body}}</p>
-        <button class="cancel" ng-click="$ctrl.deleteFeed($index);">X</button>
+<!-- Section containing the entire body -->
+<section class="feed__body">
+    <h3 class="feed__title">My Thoughts</h3>
+    <!-- button to add a new thought -->
+    <!-- ng-hide hides the button if value is truthy -->
+    <!-- ng-click calls the toggleForm method to update the boolean value of formStatus -->
+    <button class="feed__btn" type="button" ng-hide="$ctrl.formStatus" ng-click="$ctrl.toggleForm()"> New Thought
+    </button>
+    <!-- displays postForm html -->
+    <!-- ng-show displays the posting form value is truthy -->
+    <!-- on-submit calls the method addPost. This is binded to the child postForm component -->
+    <post-form ng-show="$ctrl.formStatus" on-submit="$ctrl.addPost(post);">
+    </post-form>
+    <div class="feed__list">
+        <!-- displays HTML from post -->
+        <!-- ng repeats objects in the $ctrl.posts array -->
+        <!--  -->
+        <!-- binds index, item, and on-delete to the child post -->
+        <!--  -->
+        <!-- calls $ctrl.delete method with the index as the param -->
+        <post ng-repeat="post in $ctrl.posts track by $index" index="$index" item="post"
+            on-delete="$ctrl.deletePost(index);">
+        </post>
     </div>
-    <postform on-submit="$ctrl.onSubmit(newPost)"></postform>
-</section>

@@ -1,41 +1,44 @@
 "use strict";
-const socialpost = {
+const socialPosts = {
     templateUrl: `app/socialpost/socialpost.html`,
     controller: [function(){
         const vm = this;
-        vm.formToggle = false;
-        vm.feed = [
-            {
-                title: "thought 1",
-                body: "here is the first thought I ever had"
-            },
-            {
-                title: "thought 2",
-                body: "Pancakes rock"
-            },
-            {
-                title: "thought 3",
-                body: "The music exercise we did earlier was fun"
-            }
-        ];
-        vm.onSubmit = function(newPost) {
-            console.log(newPost);
-            vm.feed.push({...newPost});
-            console.log(vm.feed);
-
+        // setting formStatus equal to false
+        vm.formStatus = false;
+        // method that toggles the value of formStatus between false and true
+        // used in a click event to change boolean value, which effectively hides and shows the postForm HTML depending on the bool value
+        vm.toggleForm = () => {
+            vm.formStatus = !vm.formStatus;
+            console.log(vm.formStatus);
         };
-        vm.deleteFeed = function(index) {
-            vm.feed.splice(index, 1);
+        // delete method that splices out post object from the posts array (housed in parent)
+        vm.deletePost = (index) => {
+            vm.posts.splice(index, 1);
             console.log(vm.feed);
-
+        };
+        // add method that adds a post object onto the post's list. then sets formStatus back to false, so form is hidden
+        vm.addPost = (post) => {
+            vm.posts.unshift({...post});
+            vm.formStatus = false;
         }
-        vm.showForm = function() {
-            vm.formToggle = !vm.formToggle;
-            console.log(vm.formToggle);
-        }
+        // array of starter posts
+        vm.posts = [
+            {
+                title: "Title One",
+                body: "Body One"
+            },
+            {
+                title: "Title Two",
+                body: "Body Two"
+            },
+            {
+                title: "Title Three",
+                body: "Body Three"
+            }
+        ]
         
     }]
 }
 angular
     .module("LittleTwitter")
-    .component("socialpost", socialpost);
+    .component("socialPosts", socialPosts);

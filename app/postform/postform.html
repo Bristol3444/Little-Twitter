@@ -1,13 +1,12 @@
-
-  <form class="form"
-      ng-class="{'form-show': $ctrl.formDisplay === true, 'form-hide': $ctrl.formDisplay === false}"
-      ng-submit="$ctrl.onSubmit({newPost})">
-      <p>Title</p>
-      <input
-        ng-model="newPost.title">
-      <p>Text</p>
-      <input 
-      ng-model="newPost.body"
-      expand></input>
-      <button>Add</button>
-  </form>
+<!-- form on ng-submit calls the onsubmit method that takes $ctrl.post and stores it in the value of post in the object. this is passed back up to the parent -->
+<!-- then clearfields is called to remove anything from the form -->
+<form class="post__form"
+  ng-submit="$ctrl.onSubmit({post : $ctrl.post}); $ctrl.clearFields();">
+    <label class="post__label"> Title</label>
+    <!-- post.title is a value of the object being sent back to the parent -->
+    <input class="post__input" type="text" placeholder="Post Title" ng-model="$ctrl.post.title">
+    <label class="post__label"> Thought</label>
+    <!-- post.body is the second value in the object -->
+    <textarea row="15" cols="50" ng-model="$ctrl.post.body"></textarea>
+    <button class="form__button" placeholder="Post body...">Add Post</button>
+</form>

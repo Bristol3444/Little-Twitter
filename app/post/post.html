@@ -1,0 +1,9 @@
+<section class="post__item">
+    <!-- displays the post objects that were ng-repeated in parent HTML -->
+    <!-- $ctrl.item is binded from the 'post' in the ng-repeat -->
+    <p class="post__title">{{$ctrl.item.title}}</p>
+    <p class="post__body">{{$ctrl.item.body}}</p>
+    <!-- calls onDelete method when clicked -->
+    <!-- onDelete is a function that is binded from the parent. Needs an object as a param for the binding. index: $ctrl.index references the index in the array of the parent -->
+    <button class="post__button" type="button" ng-click="$ctrl.onDelete({index: $ctrl.index});"><i class="material-icons">&#xE5CD;</i></button>
+</section>
